@@ -7,10 +7,9 @@ C enums can only be assigned int values, furthermore these cannot repeat and you
 This small macro library enables you to simulate [rust](https://www.rust-lang.org/)-like enums by implementing them as a [tagged union](https://en.wikipedia.org/wiki/Tagged_union) and providing an interface to deal with them as if they were enumerations. You can have up to 8 data fields per kind, but this could easily be increased.
 
 Let's say you want the equivalent of
-(The choice of types here is kind of arbitrary and stupid therefore not 100% accurate, I am aware of that)
 ```rust
 enum IpAddr {
-    V4(usize, usize, usize, usize),
+    V4(u8, u8, u8, u8),
     V6(&'static str),
 }
 ```
@@ -19,7 +18,7 @@ in your C program.
 With this library you can write
 ```c
 RUSTY_ENUM(IpAddr, V4, V6)
-RUSTY_ENUM_FIELDS(V4, int, int, int, int)
+RUSTY_ENUM_FIELDS(V4, uin8_t, uint8_t, uint8_t, uint8_t)
 RUSTY_ENUM_FIELDS(V6, const char *)
 RUSTY_ENUM_END(IpAddr)
 ```

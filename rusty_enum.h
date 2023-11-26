@@ -43,7 +43,7 @@ typedef struct name { \
 #define RUSTY_ENUM_END(name) }; } name;
 
 // -------------------------
-// IRSENUM initialization
+// RUSTY_ENUM initialization
 
 #define IRSENUM_NEW_DATA_8(_7_value, ...) ._7 = _7_value, IRSENUM_NEW_DATA_7(__VA_ARGS__)
 #define IRSENUM_NEW_DATA_7(_6_value, ...) ._6 = _6_value, IRSENUM_NEW_DATA_6(__VA_ARGS__)
@@ -61,7 +61,7 @@ typedef struct name { \
     .kind_ = { IRSENUM_NEW_DATA(__VA_ARGS__) } }
 
 // -------------------------
-// IRSENUM data retrieval
+// RUSTY_ENUM data retrieval
 #define RUSTY_ENUM_GET(instance, kind, field) instance.kind._##field
 #define RUSTY_ENUM_SET(instance, kind, field, value) instance.kind._##field = value
 
