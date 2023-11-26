@@ -49,6 +49,8 @@ Create a new instance
 ```
 IpAddr addr = RUSTY_ENUM_NEW(IpAddr, V4, 192, 168, 1, 0);
 ```
+important: you should ensure that you are passing the exact amount of arguments
+that the enum kind has data fields here, otherwise expect the unexpected to happen
 
 You can then switch on it like so
 ```c
@@ -71,5 +73,5 @@ addr.V4._0;
 #### So... is this just a struct with a union and an enum inside?
 yes.
 
-#### Shouldn't I then implement my own super cool taged union without this all this macro stuff?
+#### Shouldn't I then implement my own super cool tagged union without all this macro stuff?
 probably yeah
